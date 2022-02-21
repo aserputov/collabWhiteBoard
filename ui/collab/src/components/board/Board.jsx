@@ -49,12 +49,21 @@ class Board extends React.Component
         canvas.removeEventListener('mousemove', onPaint, false);
     }, false);
 
+        var root = this;
+        
     var onPaint = function() {
         ctx.beginPath();
         ctx.moveTo(last_mouse.x, last_mouse.y);
         ctx.lineTo(mouse.x, mouse.y);
         ctx.closePath();
         ctx.stroke();
+
+        if(root.timeout != undefined) clearTimeout(root.timeout);
+        root.timer = setTimeout(function ()
+        {
+            
+            var base64 = canvas.toDataURL("image/png")
+        },1000)
     };
 
     }
