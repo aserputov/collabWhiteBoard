@@ -6,7 +6,12 @@ class Board extends React.Component
         super(props);
     }
 
-    com
+    componentDidMount()
+    {
+
+        this.drawOnCanvas();
+        
+    }
 
     drawOnCanvas(){
     var canvas = document.querySelector('#board');
@@ -56,7 +61,7 @@ class Board extends React.Component
 
     render(){
       return(
-            <h1>Board</h1>
+           <div id="sketch" class="sketch"><canvas id="board"></canvas></div>
         )   
     }
 }
